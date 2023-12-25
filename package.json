@@ -28,6 +28,6 @@
     "/dist"
   ],
   "publishConfig": {
-    "registry": "https://npm.pkg.github.com/@yakmoon"
+    "registry": "https://npm.pkg.github.com"
   }
 }
