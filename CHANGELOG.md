@@ -1,12 +1,10 @@
-# Changelog
+## 0.1.7 (2023-12-25)
 
-All notable changes to this project will be documented in this file.
 
-The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
-and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
+### Bug Fixes
 
-## [Unreleased]
+* Fixed actions ([ce252ff](https://github.com/yakmoon/form-bender/commit/ce252ffea856206e001a480666f27dd7ef842c79))
+* git publisher ([a686220](https://github.com/yakmoon/form-bender/commit/a6862206b81cec2f620a2b99373a36110f0fa9e6))
 
-### Added
 
-- Changelog
+
