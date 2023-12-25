@@ -7,19 +7,19 @@ A simple and quick way to create and handle forms
 npm:
 
 ```
-npm install @yakmoon/form-bender
+npm install form-bender
 ```
 
 yarn
 
 ```
-yarn add @yakmoon/form-bender
+yarn add form-bender
 ```
 
 Once the installation is completed, You can start using the components by importing them from:
 
 ```
-import { FormTextInput, TextInput, useFormManager } from '@yakmoon/form-bender'
+import { FormTextInput, TextInput, useFormManager } from 'form-bender'
 ```
 
 ## Why form-bender?
@@ -35,7 +35,7 @@ This is the main input component it accepts multiple validation strategies, and 
 you can use this component like this in your code:
 
 ```
-import { useFormManager, FormTextInput } from "@yakmoon/form-bender";
+import { useFormManager, FormTextInput } from "form-bender";
 function App() {
   const folder = useFormManager({ name: "", age: 18, email: "" });
   return (
@@ -75,7 +75,7 @@ This component is very similar to `FormTextInput`, but you should not use it wit
 It's better to look at this component as a simple Input component, here is an example of how to use it:
 
 ```
-import { TextInput } from "@yakmoon/form-bender";
+import { TextInput } from "form-bender";
 function App() {
   const [state, setState] = useState({ name: "", age: "" });
   const handleChange = useCallback((value: string, key: string) => {
