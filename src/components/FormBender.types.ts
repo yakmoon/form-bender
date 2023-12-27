@@ -2,7 +2,16 @@ export type TextInputStyles = {
   $labelColor?: string;
   $errorColor?: string;
   $borderColor?: string;
+  $inputColor?: string;
+  $background?: string;
   $error?: boolean;
+};
+export type ThemeColors = {
+  labelColor?: string;
+  errorColor?: string;
+  borderColor?: string;
+  inputColor?: string;
+  background?: string;
 };
 type Payload = string | number;
 export type InputStrategy = "text" | "number" | "price" | "email" | "username" | "password" | "any";
@@ -13,12 +22,9 @@ type TextInputDefaultProps = {
   prefix?: string;
   suffix?: string;
   disabled?: boolean;
-  labelColor?: string;
-  errorColor?: string;
-  borderColor?: string;
   onFocus?: () => void;
   onBlur?: () => void;
-};
+} & ThemeColors;
 export type FormTextInputProps = {
   withComma?: boolean;
   strategy?: InputStrategy;

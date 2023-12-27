@@ -118,3 +118,23 @@ This is the form Manager, it will reurn the `folder` that is used by `FormTextIn
 `update`: used to create a new form structure. it will reset & overwrite with new form values.
 
 `get`: will return { name, value, touched, errors, initialValue } of a specific field.
+
+## FormTheme
+
+Though you can hand-pick the colors of each input by passing them through their respective props, you also can theme the inputs by containing them inside the FormTheme component. this component will only theme its children, which means you can have multiple themes side by side.
+
+Putting it in the root file will theme all the inputs everywhere.
+
+```
+import { useFormManager, FormTextInput } from "form-bender";
+function App() {
+  const folder = useFormManager({ name: "", age: 18, email: "" });
+  return (
+    <FormTheme errorColor="orange">
+      <FormTextInput name="name" label="Name" folder={folder} strategy="text" />
+      <FormTextInput name="age" label="Age" folder={folder} strategy="number" />
+      <FormTextInput name="email" label="Email" folder={folder} strategy="email" />
+    </FormTheme>
+  );
+}
+```

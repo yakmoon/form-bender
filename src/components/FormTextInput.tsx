@@ -1,19 +1,18 @@
 import { FC, useEffect, useMemo, useState } from "react";
+import { FormBenderMessage } from "./FormBender.message";
 import { strategyIn, strategyOut } from "./FormBender.strategy";
-import { StyledContainer } from "./FormBender.style";
+import { StyledContainer, themeMaker } from "./FormBender.style";
 import { FormTextInputProps, InputHandleChange } from "./FormBender.types";
 
 export const FormTextInput: FC<FormTextInputProps> = ({
-  folder,
   name,
   label,
-  labelColor = "#3559E0",
-  errorColor = "#F05941",
-  borderColor = "#F3F8FF",
-  strategy = "any",
+  folder,
   prefix,
   suffix,
+  required,
   withComma,
+  strategy = "any",
   onBlur = () => null,
   ...props
 }) => {
@@ -33,7 +32,7 @@ export const FormTextInput: FC<FormTextInputProps> = ({
     setTouched(folder.state.touched[name]);
   }, [folder.state.version]);
   return (
-    <StyledContainer $borderColor={borderColor} $labelColor={labelColor} $errorColor={errorColor} $error={touched && !!state.error}>
+    <StyledContainer className="form-bender-container" {...themeMaker(props)} $error={touched && !!state.error}>
       <input
         {...props}
         value={state.value}
@@ -41,6 +40,10 @@ export const FormTextInput: FC<FormTextInputProps> = ({
         onChange={handleChange}
         onBlur={() => {
           folder.state.touched[name] = true;
+          if (required && state.value.length < 1) {
+            folder.state.errors[name] = FormBenderMessage.error.required;
+            setState((prev) => ({ ...prev, error: FormBenderMessage.error.required }));
+          }
           setTouched(true);
           onBlur();
         }}
